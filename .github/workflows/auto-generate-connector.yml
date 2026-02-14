@@ -11,7 +11,7 @@ jobs:
     uses: orgBalLib/ballerina-library/.github/workflows/auto_generate_connector_template.yml@main
     secrets:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      BALLERINA_BOT_TOKEN: ${{ secrets.BALLERINA_BOT_TOKEN }}  # ← ADD THIS LINE
+      BALLERINA_BOT_TOKEN: ${{ secrets.BALLERINA_BOT_TOKEN }}
     with:
       openapi-url: ${{ github.event.client_payload.openapi_url }}
       distribution-zip: ""
