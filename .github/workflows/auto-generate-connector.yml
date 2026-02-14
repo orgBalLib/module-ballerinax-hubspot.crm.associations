@@ -9,14 +9,14 @@ jobs:
     name: Generate connector using reusable workflow
     if: ${{ github.repository_owner == 'orgBalLib' }}
     uses: orgBalLib/ballerina-library/.github/workflows/auto_generate_connector_template.yml@main
-    secrets: inherit
+    secrets:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      BALLERINA_BOT_TOKEN: ${{ secrets.BALLERINA_BOT_TOKEN }}  # ← ADD THIS LINE
     with:
       openapi-url: ${{ github.event.client_payload.openapi_url }}
-
       distribution-zip: ""
       license-file: "license.txt"
       quiet-mode: false
-
       regenerate-existing: true
 
   trigger-version-analysis:
